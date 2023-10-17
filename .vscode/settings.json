@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["clsx", "codegen", "commitlint", "nextauth", "openapi", "plusplus", "tailwindcss", "Імейл"],
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "css.lint.unknownAtRules": "ignore",
+  "cSpell.language": "en,uk"
+}

@@ -1,0 +1,17 @@
+/node_modules
+
+/.next/
+/out/
+/build
+
+.env 
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+package-lock.json
+
+openapi-spec.json
+
+src/api/generated
