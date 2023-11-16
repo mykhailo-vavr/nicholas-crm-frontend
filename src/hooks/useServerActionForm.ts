@@ -9,10 +9,19 @@ import { getFormInitialState, getSchemaInitialValues } from '@/utils';
 export const useServerActionForm = <S extends SchemaShape>(
   callback: FormServerAction<SchemaShapeType<S>>,
   schema: Schema<S>,
+  onSuccess?: () => void,
 ): [FormState<SchemaShapeType<S>>, (payload: FormData) => void] => {
   const action = useCallback(
-    async (prevState: FormState<SchemaShapeType<S>>, formData: FormData) => callback(formData),
-    [callback],
+    async (prevState: FormState<SchemaShapeType<S>>, formData: FormData) => {
+      const result = await callback(formData);
+
+      if (onSuccess && !result.errors) {
+        onSuccess();
+      }
+
+      return result;
+    },
+    [callback, onSuccess],
   );
 
   const formInitialState = useMemo(() => {

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { ColumnsType } from '@/types';
 
-export type TableHeadProps<R extends object> = {
-  columns: ColumnsType<R>;
+export type TableHeadProps = {
+  columns: ColumnsType;
 };
 
-export type TableHeadFC<R extends object> = FC<TableHeadProps<R>>;
+export type TableHeadFC = FC<TableHeadProps>;

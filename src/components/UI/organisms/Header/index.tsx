@@ -5,6 +5,25 @@ import StandardContainer from '../StandardContainer';
 import { getServerUser } from '@/utils';
 import { RenderIf } from '@/components/helpers';
 
+const headerLinks = [
+  {
+    label: 'Профіль',
+    href: webRoutes.private.PROFILE,
+  },
+  {
+    label: 'Адміни',
+    href: webRoutes.private.ADMINS,
+  },
+  {
+    label: 'Діти',
+    href: webRoutes.private.CHILDREN,
+  },
+  {
+    label: 'Подарунки',
+    href: webRoutes.private.GIFTS,
+  },
+];
+
 const Header: HeaderFC = async () => {
   const { isAuthenticated } = await getServerUser();
 
@@ -14,7 +33,11 @@ const Header: HeaderFC = async () => {
     >
       <RenderIf condition={isAuthenticated}>
         <div className="flex gap-4">
-          <Link href={webRoutes.private.PROFILE}>Профіль</Link>
+          {headerLinks.map(({ label, href }) => (
+            <Link href={href} key={href}>
+              {label}
+            </Link>
+          ))}
         </div>
         <SignOutButton />
       </RenderIf>

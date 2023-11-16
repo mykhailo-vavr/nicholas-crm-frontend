@@ -3,5 +3,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type UpdateChildDto = {
-};
+export enum NeedStatusEnum {
+    MODERATE = 'moderate',
+    VERY = 'very',
+}

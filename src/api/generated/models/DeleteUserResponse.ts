@@ -12,6 +12,8 @@ export type DeleteUserResponse = {
     lastName: string;
     phone: string;
     email: string;
+    isActive: boolean;
+    deactivationReason: string | null;
     createdAt: string;
     updatedAt: string;
 };

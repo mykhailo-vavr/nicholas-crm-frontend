@@ -4,9 +4,9 @@ import { useCallback, useMemo } from 'react';
 import { TableHead as MUITableHead, TableRow, TableCell, TableSortLabel } from '@mui/material';
 import { SortOrderEnum } from '@/api/generated';
 import { useQueryHandler } from '@/hooks';
-import { TableHeadProps } from './types';
+import { TableHeadFC } from './types';
 
-const TableHead = <R extends object>({ columns }: TableHeadProps<R>) => {
+const TableHead: TableHeadFC = ({ columns }) => {
   const initialQuery = useMemo(
     () => ({
       sort: '',

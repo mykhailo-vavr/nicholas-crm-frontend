@@ -1,7 +1,7 @@
 import { ColumnsType, RowsType } from '@/types';
 
 export type TableProps<R extends object> = {
-  columns: ColumnsType<R>;
+  columns: ColumnsType;
   rows: RowsType<R>;
   count?: number;
   rowsPerPageOptions?: number[];

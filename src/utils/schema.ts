@@ -1,20 +1,5 @@
-import { ZodBoolean, ZodNull, ZodNumber, ZodObject, ZodString } from 'zod';
-import { Schema, SchemaIssue, SchemaShape, SchemaShapeType } from '@/types';
-
-export const parseErrors = <S extends SchemaShape>(issues: SchemaIssue[]) =>
-  Object.fromEntries(issues.map(({ path, message }) => [path[0], message])) as Partial<Record<keyof S, string>>;
-
-export const parseFormData = async <S extends SchemaShape>(schema: Schema<S>, formData: FormData) => {
-  const parsed = await schema.safeParseAsync(Object.fromEntries(formData.entries()));
-
-  if (parsed.success) {
-    return { data: parsed.data, errors: null };
-  }
-
-  const errors = parseErrors<S>(parsed.error.issues);
-
-  return { data: null, errors };
-};
+import { ZodBoolean, ZodNull, ZodNumber, ZodObject, ZodString, coerce, object, string as zodString } from 'zod';
+import { Schema, SchemaShape, SchemaShapeType } from '@/types';
 
 export const getSchemaInitialValues = <S extends SchemaShape>(schema: Schema<S>) =>
   Object.fromEntries(
@@ -27,3 +12,19 @@ export const getSchemaInitialValues = <S extends SchemaShape>(schema: Schema<S>)
       return [key, undefined];
     }),
   ) as SchemaShapeType<S>;
+
+export const notEmptyString = () => zodString().trim().min(1);
+
+export const idSchema = () => coerce.number().int().positive();
+
+export const addressSchema = () =>
+  object({
+    city: notEmptyString().max(30),
+    street: notEmptyString().max(50),
+    streetNumber: notEmptyString().max(10),
+  });
+
+const phoneRegEx = /^\+380 \(\d{2}\) \d{3}-\d{2}-\d{2}$/;
+export const phone = () => zodString().refine((value) => phoneRegEx.test(value));
+
+export const email = () => zodString().email();

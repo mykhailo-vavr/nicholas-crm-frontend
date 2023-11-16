@@ -3,11 +3,17 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import type { CreateAddressDto } from './CreateAddressDto';
+import type { GenderEnum } from './GenderEnum';
+import type { NeedStatusEnum } from './NeedStatusEnum';
+
 export type CreateChildDto = {
-    deactivationReason: string;
-    gender: Record<string, any>;
-    isActive: boolean;
+    gender: GenderEnum;
+    needStatus: NeedStatusEnum;
+    address: CreateAddressDto;
     firstName: string;
     lastName: string;
-    birthDate: string;
+    birthYear: number;
+    phone: string;
+    notes?: string;
 };

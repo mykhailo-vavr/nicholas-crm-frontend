@@ -32,7 +32,7 @@ const SearchInput: SearchInputFC = ({ className, ...props }) => {
       value={search}
       onChange={onChange}
       permanentHelperText={false}
-      className={cls('mb-4 w-64', className)}
+      className={cls('w-64', className)}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">

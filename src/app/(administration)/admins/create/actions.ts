@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { parseFormData } from '@/utils';
 import { FormServerAction, SchemaType } from '@/types';
 import { createAdminSchema } from './schemas';
-import { RolesEnum, UsersService } from '@/api/generated';
+import { UserService } from '@/api/generated';
 import { webRoutes } from '@/settings';
 import '@/api/config';
 
@@ -15,7 +15,7 @@ export const createAdminAction: FormServerAction<SchemaType<typeof createAdminSc
     return parsed;
   }
 
-  const isTaken = await UsersService.userControllerIsTaken({
+  const isTaken = await UserService.userControllerIsTaken({
     email: parsed.data.email,
     phone: parsed.data.phone,
   });
@@ -30,7 +30,7 @@ export const createAdminAction: FormServerAction<SchemaType<typeof createAdminSc
     };
   }
 
-  await UsersService.userControllerCreate({ requestBody: { ...parsed.data, role: RolesEnum.ADMIN } });
+  await UserService.userControllerCreate({ requestBody: { ...parsed.data } });
 
   return redirect(webRoutes.private.ADMINS);
 };

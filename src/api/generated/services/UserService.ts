@@ -4,6 +4,7 @@
 /* eslint-disable */
 import type { CreateUserDto } from '../models/CreateUserDto';
 import type { CreateUserResponse } from '../models/CreateUserResponse';
+import type { DeactivateUserDto } from '../models/DeactivateUserDto';
 import type { DeleteUserResponse } from '../models/DeleteUserResponse';
 import type { GetAllUsersResponse } from '../models/GetAllUsersResponse';
 import type { GetUserByPkResponse } from '../models/GetUserByPkResponse';
@@ -15,7 +16,25 @@ import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 
-export class UsersService {
+export class UserService {
+
+    /**
+     * @returns any 
+     * @throws ApiError
+     */
+    public static userControllerActivate({
+id,
+}: {
+id: number,
+}): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'PATCH',
+            url: '/api/v1/users/{id}/activate',
+            path: {
+                'id': id,
+            },
+        });
+    }
 
     /**
      * @returns CreateUserResponse 
@@ -39,28 +58,50 @@ requestBody: CreateUserDto,
      * @throws ApiError
      */
     public static userControllerGetAll({
-sort,
-order,
-search,
 page,
 limit,
+search,
+sort,
+order,
 }: {
-sort?: UserSortFieldsEnum,
-order?: SortOrderEnum,
-search?: string,
 page?: number,
 limit?: number,
+search?: string,
+sort?: UserSortFieldsEnum,
+order?: SortOrderEnum,
 }): CancelablePromise<GetAllUsersResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/v1/users',
             query: {
-                'sort': sort,
-                'order': order,
-                'search': search,
                 'page': page,
                 'limit': limit,
+                'search': search,
+                'sort': sort,
+                'order': order,
             },
+        });
+    }
+
+    /**
+     * @returns any 
+     * @throws ApiError
+     */
+    public static userControllerDeactivate({
+id,
+requestBody,
+}: {
+id: number,
+requestBody: DeactivateUserDto,
+}): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'PATCH',
+            url: '/api/v1/users/{id}/deactivate',
+            path: {
+                'id': id,
+            },
+            body: requestBody,
+            mediaType: 'application/json',
         });
     }
 

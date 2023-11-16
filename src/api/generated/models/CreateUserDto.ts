@@ -7,8 +7,8 @@ import type { RolesEnum } from './RolesEnum';
 
 export type CreateUserDto = {
     role: RolesEnum;
-    lastName: string;
     firstName: string;
+    lastName: string;
     phone: string;
     email: string;
     password: string;
