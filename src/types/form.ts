@@ -11,3 +11,7 @@ export type FormState<S extends object> =
     };
 
 export type FormServerAction<S extends object> = ServerAction<FormState<S>>;
+
+export type Option<T> = { label: string; value: T };
+
+export type Options<T> = Option<T>[];

@@ -1,7 +1,7 @@
-import { UsersService } from '@/api/generated';
+import { UserService } from '@/api/generated';
 import { FCWithSearchParams } from '@/types';
 
-export type AdminsPageSearchParams = Parameters<typeof UsersService.userControllerGetAll>[0];
+export type AdminsPageSearchParams = Parameters<typeof UserService.userControllerGetAll>[0];
 
 export type AdminsPageFC = FCWithSearchParams<AdminsPageSearchParams>;
 

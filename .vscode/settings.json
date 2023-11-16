@@ -1,5 +1,17 @@
 {
-  "cSpell.words": ["clsx", "codegen", "commitlint", "nextauth", "openapi", "plusplus", "tailwindcss", "Імейл"],
+  "cSpell.words": [
+    "clsx",
+    "codegen",
+    "commitlint",
+    "datetime",
+    "googlemaps",
+    "nextauth",
+    "openapi",
+    "plusplus",
+    "tailwindcss",
+    "Underhood",
+    "Імейл"
+  ],
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "css.lint.unknownAtRules": "ignore",
   "cSpell.language": "en,uk"

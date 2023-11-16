@@ -1,3 +1,4 @@
-import { InputFC } from '../Input/types';
+import { FC } from 'react';
+import { PatternInputProps } from '../PatternInput/types';
 
-export type PhoneInputFC = InputFC;
+export type PhoneInputFC = FC<Partial<PatternInputProps>>;

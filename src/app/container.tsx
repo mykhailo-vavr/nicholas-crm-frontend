@@ -8,7 +8,7 @@ const LandingContainer: LandingContainerFC = () => (
     classes={{ title: 'text-lg', content: 'flex flex-col gap-2.5 text-md' }}
     title="Миколай про тебе не забуде"
   >
-    <Typography>
+    <Typography className="flex gap-1">
       Вже маєте профіль? <Link href={webRoutes.public.SIGN_IN}>Ввійти</Link>
     </Typography>
   </StandardContainer>

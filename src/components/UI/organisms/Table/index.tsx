@@ -19,7 +19,7 @@ const Table = <T extends object>({ columns, rows, count = -1, rowsPerPageOptions
           {rows.map((row) => (
             <TableRow key={row.id}>
               {Object.entries(row).map(([key, value]) => (
-                <RenderIf condition={key !== 'id'} key={value}>
+                <RenderIf condition={key !== 'id'} key={key}>
                   <TableCell>{value}</TableCell>
                 </RenderIf>
               ))}

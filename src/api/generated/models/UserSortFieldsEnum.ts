@@ -11,6 +11,8 @@ export enum UserSortFieldsEnum {
     EMAIL = 'email',
     PASSWORD = 'password',
     ROLE = 'role',
+    IS_ACTIVE = 'isActive',
+    DEACTIVATION_REASON = 'deactivationReason',
     CREATED_AT = 'createdAt',
     UPDATED_AT = 'updatedAt',
 }

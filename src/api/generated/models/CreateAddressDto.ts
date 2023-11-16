@@ -6,6 +6,6 @@
 export type CreateAddressDto = {
     city: string;
     street: string;
-    streetNumber: number;
-    flatNumber: number;
+    streetNumber?: string;
+    flatNumber?: number;
 };

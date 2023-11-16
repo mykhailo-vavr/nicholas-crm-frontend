@@ -5,12 +5,19 @@ import { experimental_useFormStatus as useFormStatus } from 'react-dom';
 import Button from '../Button';
 import { SubmitButtonFC } from './types';
 import Spinner from '../Spinner';
+import { cls } from '@/utils';
 
-const SubmitButton: SubmitButtonFC = ({ children }) => {
+const SubmitButton: SubmitButtonFC = ({ disabled, classes, className, children, ...props }) => {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" disabled={pending} variant="contained" className="h-10">
+    <Button
+      type="submit"
+      disabled={pending || disabled}
+      variant="contained"
+      classes={{ root: cls('h-10', classes?.root, className) }}
+      {...props}
+    >
       {pending ? <Spinner size="2rem" /> : children}
     </Button>
   );

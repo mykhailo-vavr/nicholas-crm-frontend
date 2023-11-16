@@ -1,3 +1,3 @@
-import { FCWithChildren } from '@/types';
+import { ButtonFC } from '../Button/types';
 
-export type SubmitButtonFC = FCWithChildren;
+export type SubmitButtonFC = ButtonFC;
