@@ -1,4 +1,4 @@
-import { GiftService } from '@/api/generated';
+import { GiftService } from '@/api/__generated__';
 import { FCWithSearchParams } from '@/types';
 
 // TODO: separate searchParams query type

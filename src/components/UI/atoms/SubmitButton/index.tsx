@@ -1,7 +1,6 @@
 'use client';
 
-// @ts-ignore
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import Button from '../Button';
 import { SubmitButtonFC } from './types';
 import Spinner from '../Spinner';
@@ -14,7 +13,6 @@ const SubmitButton: SubmitButtonFC = ({ disabled, classes, className, children, 
     <Button
       type="submit"
       disabled={pending || disabled}
-      variant="contained"
       classes={{ root: cls('h-10', classes?.root, className) }}
       {...props}
     >

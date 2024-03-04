@@ -2,13 +2,13 @@
 
 import { revalidatePath } from 'next/cache';
 import { parseFormData } from '@/utils';
-import { FormServerAction, SchemaType } from '@/types';
+import { FormAction, SchemaType } from '@/types';
 import { activateChildSchema, deactivateChildSchema } from './schemas';
-import { ChildService } from '@/api/generated';
-import { webRoutes } from '@/settings';
+import { ChildService } from '@/api/__generated__';
+import { WEB_ROUTES } from '@/settings';
 import '@/api/config';
 
-export const activateChildAction: FormServerAction<SchemaType<typeof activateChildSchema>> = async (formData) => {
+export const activateChildAction: FormAction<SchemaType<typeof activateChildSchema>> = async (formData) => {
   const parsed = await parseFormData(activateChildSchema, formData);
 
   if (!parsed.data) {
@@ -19,11 +19,11 @@ export const activateChildAction: FormServerAction<SchemaType<typeof activateChi
 
   await ChildService.childControllerActivate({ id });
 
-  revalidatePath(webRoutes.private.CHILD, 'page');
+  revalidatePath(WEB_ROUTES.PRIVATE.CHILD, 'page');
   return parsed;
 };
 
-export const deactivateChildAction: FormServerAction<SchemaType<typeof deactivateChildSchema>> = async (formData) => {
+export const deactivateChildAction: FormAction<SchemaType<typeof deactivateChildSchema>> = async (formData) => {
   const parsed = await parseFormData(deactivateChildSchema, formData);
 
   if (!parsed.data) {
@@ -34,6 +34,6 @@ export const deactivateChildAction: FormServerAction<SchemaType<typeof deactivat
 
   await ChildService.childControllerDeactivate({ id, requestBody });
 
-  revalidatePath(webRoutes.private.CHILD, 'page');
+  revalidatePath(WEB_ROUTES.PRIVATE.CHILD, 'page');
   return parsed;
 };

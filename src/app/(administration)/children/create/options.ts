@@ -1,4 +1,4 @@
-import { GenderEnum, NeedStatusEnum } from '@/api/generated';
+import { GenderEnum, NeedStatusEnum } from '@/api/__generated__';
 import { Options } from '@/types';
 import { t } from '@/utils';
 

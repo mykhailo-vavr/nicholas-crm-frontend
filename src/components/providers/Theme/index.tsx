@@ -1,9 +1,11 @@
 'use client';
 
-import { ThemeProvider as MUIThemeProvider } from '@mui/material';
+import { ThemeProvider as ThemeProviderOriginal } from '@mui/material';
 import { theme } from '@/styles';
 import { FCWithChildren } from '@/types';
 
-const ThemeProvider: FCWithChildren = ({ children }) => <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>;
+const ThemeProvider: FCWithChildren = ({ children }) => (
+  <ThemeProviderOriginal theme={theme}>{children}</ThemeProviderOriginal>
+);
 
 export default ThemeProvider;

@@ -1,14 +1,14 @@
 import { FCWithChildren } from '@/types';
 import StylesProvider from './Styles';
-import SessionProvider from './Session';
 import ThemeProvider from './Theme';
+import { UserProvider } from '@/contexts';
 
-const Providers: FCWithChildren = async ({ children }) => (
-  <StylesProvider>
+const Providers: FCWithChildren = ({ children }) => (
+  <UserProvider>
     <ThemeProvider>
-      <SessionProvider>{children}</SessionProvider>
+      <StylesProvider>{children}</StylesProvider>
     </ThemeProvider>
-  </StylesProvider>
+  </UserProvider>
 );
 
 export default Providers;

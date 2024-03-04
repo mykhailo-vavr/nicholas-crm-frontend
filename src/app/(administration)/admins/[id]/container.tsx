@@ -1,11 +1,11 @@
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
-import { UserService } from '@/api/generated';
+import { UserService } from '@/api/__generated__';
 import { StandardContainer } from '@/components/UI/organisms';
 import ActivateAdminForm from './activate-admin-form';
 import DeactivateAdminForm from './deactivate-admin-form';
 import { RenderIf, RenderIfSuperAdmin } from '@/components/helpers';
 import { Link } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { StandardBar } from '@/components/UI/molecules';
 import { FCWithId } from '@/types';
 
@@ -15,7 +15,7 @@ const AdminContainer: FCWithId = async ({ id }) => {
   return (
     <StandardContainer title={`${admin.firstName} ${admin.lastName}`}>
       <StandardBar>
-        <Link href={webRoutes.private.CHILDREN}>
+        <Link href={WEB_ROUTES.PRIVATE.CHILDREN}>
           <ArrowBackIcon />
           До списку
         </Link>

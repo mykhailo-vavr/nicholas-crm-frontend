@@ -1,5 +1,5 @@
-import { ServerConfigKeysEnum, getServerApiToken, getServerConfig } from '@/utils';
-import { OpenAPI } from './generated';
+import { ServerConfigKeysEnum, getServerConfig } from '@/utils';
+import { OpenAPI } from './__generated__';
 
 OpenAPI.BASE = getServerConfig(ServerConfigKeysEnum.API_BASE_URL);
-OpenAPI.TOKEN = getServerApiToken;
+OpenAPI.TOKEN = '';

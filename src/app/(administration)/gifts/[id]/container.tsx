@@ -1,8 +1,8 @@
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
-import { GiftService } from '@/api/generated';
+import { GiftService } from '@/api/__generated__';
 import { StandardContainer } from '@/components/UI/organisms';
 import { Link } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { StandardBar } from '@/components/UI/molecules';
 import { FCWithId } from '@/types';
 
@@ -12,7 +12,7 @@ const GiftContainer: FCWithId = async ({ id }) => {
   return (
     <StandardContainer title={gift.name}>
       <StandardBar>
-        <Link href={webRoutes.private.GIFTS}>
+        <Link href={WEB_ROUTES.PRIVATE.GIFTS}>
           <ArrowBackIcon />
           До списку
         </Link>

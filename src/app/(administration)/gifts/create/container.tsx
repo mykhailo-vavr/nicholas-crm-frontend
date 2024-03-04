@@ -6,7 +6,7 @@ import { CreateGiftContainerFC } from './types';
 import { StandardBar } from '@/components/UI/molecules';
 import { Form, StandardContainer } from '@/components/UI/organisms';
 import { Input, Select, SubmitButton, TextArea, Link, NumberInput } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { createGiftSchema } from './schemas';
 import { createGiftAction } from './actions';
 import { genderOptions, giftSubtypeOptions, giftTypeOptions } from './options';
@@ -17,7 +17,7 @@ const CreateGiftContainer: CreateGiftContainerFC = () => {
   return (
     <StandardContainer title="Створити подарунок">
       <StandardBar>
-        <Link href={webRoutes.private.GIFTS}>
+        <Link href={WEB_ROUTES.PRIVATE.GIFTS}>
           <ArrowBackIcon />
           До списку
         </Link>

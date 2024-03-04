@@ -1,6 +1,7 @@
-import { FC, ReactNode, ChangeEvent } from 'react';
+import { SelectChangeEvent } from '@mui/material';
+import { ChangeEvent, FC, ReactNode, MouseEvent } from 'react';
 
-export type PageWithIdParam = FC<{
+export type FCWithIdParam = FC<{
   params: {
     id: number;
   };
@@ -12,4 +13,22 @@ export type FCWithSearchParams<S extends object, P = unknown> = FC<{ searchParam
 
 export type FCWithId = FC<{ id: number }>;
 
-export type InputOnchangeEvent = ChangeEvent<HTMLInputElement>;
+export type FCWithClassName<P = unknown> = FC<{ className?: string } & P>;
+
+export type FCWithSlug<P = unknown> = FC<{ slug: string } & P>;
+
+export type InputOnChangeEvent = ChangeEvent<HTMLInputElement>;
+
+export type SelectOnChangeEvent = SelectChangeEvent<unknown>;
+
+export type ButtonOnClickEvent = MouseEvent<HTMLButtonElement>;
+
+export type AnchorOnClickEvent = MouseEvent<HTMLAnchorElement>;
+
+export type OnClickHandler = (event: ButtonOnClickEvent) => void | Promise<void>;
+
+export type ClassNames<K extends string> = {
+  [key in K]?: string;
+} & {
+  root?: string;
+};

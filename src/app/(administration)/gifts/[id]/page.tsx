@@ -1,8 +1,8 @@
 import { parseId } from '@/utils';
 import GiftContainer from './container';
-import { PageWithIdParam } from '@/types';
+import { FCWithIdParam } from '@/types';
 
-const GiftPage: PageWithIdParam = async ({ params }) => {
+const GiftPage: FCWithIdParam = async ({ params }) => {
   const id = await parseId(params.id);
 
   return <GiftContainer id={id} />;

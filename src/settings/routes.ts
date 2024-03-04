@@ -1,9 +1,9 @@
-export const webRoutes = {
-  public: {
+export const WEB_ROUTES = {
+  PUBLIC: {
     LANDING_PAGE: '/',
     SIGN_IN: '/auth/sign-in',
   },
-  private: {
+  PRIVATE: {
     PROFILE: '/profile',
 
     ADMINS: '/admins',

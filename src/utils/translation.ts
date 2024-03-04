@@ -1,4 +1,4 @@
-import { GenderEnum, GiftSubtypeEnum, GiftTypeEnum, NeedStatusEnum, RolesEnum } from '@/api/generated';
+import { GenderEnum, GiftSubtypeEnum, GiftTypeEnum, NeedStatusEnum, RolesEnum } from '@/api/__generated__';
 
 export const t = {
   roles: {

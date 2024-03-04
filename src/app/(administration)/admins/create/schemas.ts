@@ -1,6 +1,6 @@
 import { nativeEnum, object, string } from 'zod';
 import { email, notEmptyString, phone } from '@/utils';
-import { RolesEnum } from '@/api/generated';
+import { RolesEnum } from '@/api/__generated__';
 
 export const createAdminSchema = object({
   firstName: notEmptyString(),

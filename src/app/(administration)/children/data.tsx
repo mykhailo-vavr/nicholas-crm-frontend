@@ -1,9 +1,9 @@
-import { ChildService } from '@/api/generated';
+import { ChildService } from '@/api/__generated__';
 import { Link } from '@/components/UI/atoms';
 import { Table } from '@/components/UI/organisms';
 import { ChildrenDataFC } from './types';
 import { t } from '@/utils';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 
 const ChildrenData: ChildrenDataFC = async ({ searchParams }) => {
   const data = await ChildService.childControllerGetAll(searchParams);
@@ -23,7 +23,7 @@ const ChildrenData: ChildrenDataFC = async ({ searchParams }) => {
     address: [item.address.street, item.address.city].join(', '),
     gender: t.gender[item.gender],
     phone: item.phone,
-    action: <Link href={webRoutes.private.CHILD.replace('[id]', String(item.id))}>Більше</Link>,
+    action: <Link href={WEB_ROUTES.PRIVATE.CHILD.replace('[id]', String(item.id))}>Більше</Link>,
     id: item.id,
   }));
 

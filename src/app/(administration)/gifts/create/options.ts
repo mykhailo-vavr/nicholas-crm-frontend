@@ -1,4 +1,4 @@
-import { GenderEnum, GiftTypeEnum, GiftSubtypeEnum } from '@/api/generated';
+import { GenderEnum, GiftTypeEnum, GiftSubtypeEnum } from '@/api/__generated__';
 import { Options } from '@/types';
 import { t } from '@/utils';
 

@@ -1,4 +1,4 @@
-import { ChildService } from '@/api/generated';
+import { ChildService } from '@/api/__generated__';
 import { FCWithSearchParams } from '@/types';
 
 export type ChildrenPageSearchParams = Parameters<typeof ChildService.childControllerGetAll>[0];

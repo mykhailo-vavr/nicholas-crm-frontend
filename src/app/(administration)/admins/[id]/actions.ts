@@ -2,13 +2,13 @@
 
 import { revalidatePath } from 'next/cache';
 import { parseFormData } from '@/utils';
-import { FormServerAction, SchemaType } from '@/types';
+import { FormAction, SchemaType } from '@/types';
 import { activateAdminSchema, deactivateAdminSchema } from './schemas';
-import { UserService } from '@/api/generated';
-import { webRoutes } from '@/settings';
+import { UserService } from '@/api/__generated__';
+import { WEB_ROUTES } from '@/settings';
 import '@/api/config';
 
-export const activateAdminAction: FormServerAction<SchemaType<typeof activateAdminSchema>> = async (formData) => {
+export const activateAdminAction: FormAction<SchemaType<typeof activateAdminSchema>> = async (formData) => {
   const parsed = await parseFormData(activateAdminSchema, formData);
 
   if (!parsed.data) {
@@ -19,11 +19,11 @@ export const activateAdminAction: FormServerAction<SchemaType<typeof activateAdm
 
   await UserService.userControllerActivate({ id });
 
-  revalidatePath(webRoutes.private.ADMIN, 'page');
+  revalidatePath(WEB_ROUTES.PRIVATE.ADMIN, 'page');
   return parsed;
 };
 
-export const deactivateAdminAction: FormServerAction<SchemaType<typeof deactivateAdminSchema>> = async (formData) => {
+export const deactivateAdminAction: FormAction<SchemaType<typeof deactivateAdminSchema>> = async (formData) => {
   const parsed = await parseFormData(deactivateAdminSchema, formData);
 
   if (!parsed.data) {
@@ -34,6 +34,6 @@ export const deactivateAdminAction: FormServerAction<SchemaType<typeof deactivat
 
   await UserService.userControllerDeactivate({ id, requestBody });
 
-  revalidatePath(webRoutes.private.ADMIN, 'page');
+  revalidatePath(WEB_ROUTES.PRIVATE.ADMIN, 'page');
   return parsed;
 };

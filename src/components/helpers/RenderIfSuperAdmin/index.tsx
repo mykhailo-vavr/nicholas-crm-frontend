@@ -1,4 +1,4 @@
-import { RolesEnum } from '@/api/generated';
+import { RolesEnum } from '@/api/__generated__';
 import { FCWithChildren } from '@/types';
 import RenderIfRole from '../RenderIfRole';
 

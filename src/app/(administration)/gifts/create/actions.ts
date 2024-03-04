@@ -2,13 +2,13 @@
 
 import { redirect } from 'next/navigation';
 import { parseFormData } from '@/utils';
-import { FormServerAction, SchemaType } from '@/types';
+import { FormAction, SchemaType } from '@/types';
 import { createGiftSchema } from './schemas';
-import { GiftService } from '@/api/generated';
-import { webRoutes } from '@/settings';
+import { GiftService } from '@/api/__generated__';
+import { WEB_ROUTES } from '@/settings';
 import '@/api/config';
 
-export const createGiftAction: FormServerAction<SchemaType<typeof createGiftSchema>> = async (formData) => {
+export const createGiftAction: FormAction<SchemaType<typeof createGiftSchema>> = async (formData) => {
   const parsed = await parseFormData(createGiftSchema, formData);
 
   if (!parsed.data) {
@@ -30,5 +30,5 @@ export const createGiftAction: FormServerAction<SchemaType<typeof createGiftSche
 
   await GiftService.giftControllerCreate({ requestBody: parsed.data });
 
-  return redirect(webRoutes.private.GIFTS);
+  return redirect(WEB_ROUTES.PRIVATE.GIFTS);
 };

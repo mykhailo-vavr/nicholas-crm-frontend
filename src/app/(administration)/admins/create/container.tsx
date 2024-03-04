@@ -9,7 +9,7 @@ import { createAdminSchema } from './schemas';
 import { createAdminAction } from './actions';
 import { adminRolesOptions } from './options';
 import { StandardBar } from '@/components/UI/molecules';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 
 const CreateAdminContainer: CreateAdminContainerFC = () => {
   const [{ errors }, action] = useServerActionForm(createAdminAction, createAdminSchema);
@@ -17,7 +17,7 @@ const CreateAdminContainer: CreateAdminContainerFC = () => {
   return (
     <StandardContainer title="Створити адміністратора">
       <StandardBar>
-        <Link href={webRoutes.private.ADMINS}>
+        <Link href={WEB_ROUTES.PRIVATE.ADMINS}>
           <ArrowBackIcon />
           До списку
         </Link>

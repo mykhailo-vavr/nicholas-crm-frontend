@@ -1,7 +1,7 @@
-import { UserService } from '@/api/generated';
+import { UserService } from '@/api/__generated__';
 import { Link } from '@/components/UI/atoms';
 import { Table } from '@/components/UI/organisms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { AdminsDataFC } from './types';
 
 const AdminsData: AdminsDataFC = async ({ searchParams }) => {
@@ -20,7 +20,7 @@ const AdminsData: AdminsDataFC = async ({ searchParams }) => {
     lastName: item.lastName,
     phone: item.phone,
     email: item.email,
-    action: <Link href={webRoutes.private.ADMIN.replace('[id]', String(item.id))}>Більше</Link>,
+    action: <Link href={WEB_ROUTES.PRIVATE.ADMIN.replace('[id]', String(item.id))}>Більше</Link>,
     id: item.id,
   }));
 

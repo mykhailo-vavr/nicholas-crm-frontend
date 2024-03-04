@@ -17,7 +17,7 @@ import {
   NumberInput,
   AddressInput,
 } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { createChildSchema } from './schemas';
 import { createChildAction } from './actions';
 import { genderOptions, needStatusOptions } from './options';
@@ -28,7 +28,7 @@ const CreateChildContainer: CreateChildContainerFC = () => {
   return (
     <StandardContainer title="Додати дитину">
       <StandardBar>
-        <Link href={webRoutes.private.CHILDREN}>
+        <Link href={WEB_ROUTES.PRIVATE.CHILDREN}>
           <ArrowBackIcon />
           До списку
         </Link>

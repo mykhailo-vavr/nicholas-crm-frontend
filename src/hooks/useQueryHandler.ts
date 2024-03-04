@@ -3,13 +3,13 @@
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useTransition } from 'react';
 import { createQueryString } from '@/utils';
-import { useDebounce } from './useDebounce';
+import { useDebounceState } from './useDebounce';
 
 export const useQueryHandler = <T extends Record<string, string | number>>(initialQuery: T, delay = 200) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [debouncedQuery, query, setQuery] = useDebounce<T>(initialQuery, delay);
+  const [debouncedQuery, query, setQuery] = useDebounceState<T>(initialQuery, delay);
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {

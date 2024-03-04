@@ -3,7 +3,7 @@ import { Link, SearchInput } from '@/components/UI/atoms';
 import { StandardContainer } from '@/components/UI/organisms';
 import { AdminsContainerFC } from './types';
 import { StandardBar } from '@/components/UI/molecules';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import AdminsData from './data';
 import { RenderIfSuperAdmin } from '@/components/helpers';
 
@@ -12,7 +12,7 @@ const AdminsContainer: AdminsContainerFC = ({ searchParams }) => (
     <StandardBar>
       <SearchInput />
       <RenderIfSuperAdmin>
-        <Link href={webRoutes.private.CREATE_ADMIN}>
+        <Link href={WEB_ROUTES.PRIVATE.CREATE_ADMIN}>
           <AddIcon />
           Додати адміністратора
         </Link>

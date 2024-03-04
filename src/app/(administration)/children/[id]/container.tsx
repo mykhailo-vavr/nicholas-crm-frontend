@@ -1,12 +1,12 @@
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { FCWithId } from './types';
-import { ChildService } from '@/api/generated';
+import { ChildService } from '@/api/__generated__';
 import { StandardContainer } from '@/components/UI/organisms';
 import ActivateChildForm from './activate-child-form';
 import DeactivateChildForm from './deactivate-child-form';
 import { RenderIf } from '@/components/helpers';
 import { Link } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { StandardBar } from '@/components/UI/molecules';
 
 const ChildContainer: FCWithId = async ({ id }) => {
@@ -15,7 +15,7 @@ const ChildContainer: FCWithId = async ({ id }) => {
   return (
     <StandardContainer title={`${child.firstName} ${child.lastName}`}>
       <StandardBar>
-        <Link href={webRoutes.private.CHILDREN}>
+        <Link href={WEB_ROUTES.PRIVATE.CHILDREN}>
           <ArrowBackIcon />
           До списку
         </Link>

@@ -2,13 +2,13 @@
 
 import { redirect } from 'next/navigation';
 import { parseFormData } from '@/utils';
-import { FormServerAction, SchemaType } from '@/types';
+import { FormAction, SchemaType } from '@/types';
 import { createChildSchema } from './schemas';
-import { ChildService } from '@/api/generated';
-import { webRoutes } from '@/settings';
+import { ChildService } from '@/api/__generated__';
+import { WEB_ROUTES } from '@/settings';
 import '@/api/config';
 
-export const createChildAction: FormServerAction<SchemaType<typeof createChildSchema>> = async (formData) => {
+export const createChildAction: FormAction<SchemaType<typeof createChildSchema>> = async (formData) => {
   const parsed = await parseFormData(createChildSchema, formData);
 
   if (!parsed.data) {
@@ -27,5 +27,5 @@ export const createChildAction: FormServerAction<SchemaType<typeof createChildSc
     },
   });
 
-  return redirect(webRoutes.private.CHILDREN);
+  return redirect(WEB_ROUTES.PRIVATE.CHILDREN);
 };

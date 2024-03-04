@@ -14,4 +14,4 @@ package-lock.json
 
 openapi-spec.json
 
-src/api/generated
+src/api/__generated__

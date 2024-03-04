@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo } from 'react';
 import { TableHead as MUITableHead, TableRow, TableCell, TableSortLabel } from '@mui/material';
-import { SortOrderEnum } from '@/api/generated';
+import { SortOrderEnum } from '@/api/__generated__';
 import { useQueryHandler } from '@/hooks';
 import { TableHeadFC } from './types';
 

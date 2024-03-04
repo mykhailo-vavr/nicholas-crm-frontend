@@ -1,9 +1,10 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useMemo } from 'react';
+import { useUserContext } from '@/contexts';
 
 export const useUser = () => {
-  const session = useSession();
+  const { user } = useUserContext();
 
-  return { isAuthenticated: !!session.data, ...session.data?.user };
+  return useMemo(() => ({ isAuthenticated: !!user, ...user }), [user]);
 };

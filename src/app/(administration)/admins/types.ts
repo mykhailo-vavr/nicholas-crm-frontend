@@ -1,4 +1,4 @@
-import { UserService } from '@/api/generated';
+import { UserService } from '@/api/__generated__';
 import { FCWithSearchParams } from '@/types';
 
 export type AdminsPageSearchParams = Parameters<typeof UserService.userControllerGetAll>[0];

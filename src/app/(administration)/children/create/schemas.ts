@@ -1,5 +1,5 @@
 import { coerce, nativeEnum, object, string } from 'zod';
-import { CreateChildDto, GenderEnum, NeedStatusEnum } from '@/api/generated';
+import { CreateChildDto, GenderEnum, NeedStatusEnum } from '@/api/__generated__';
 import { SchemaAsType } from '@/types';
 import { getCurrentYear, phone, notEmptyString, addressStringSchema } from '@/utils';
 

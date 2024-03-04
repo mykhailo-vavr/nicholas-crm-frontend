@@ -1,5 +1,5 @@
 import { Link, Typography } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { LandingContainerFC } from './types';
 import { StandardContainer } from '@/components/UI/organisms';
 
@@ -9,7 +9,7 @@ const LandingContainer: LandingContainerFC = () => (
     title="Миколай про тебе не забуде"
   >
     <Typography className="flex gap-1">
-      Вже маєте профіль? <Link href={webRoutes.public.SIGN_IN}>Ввійти</Link>
+      Вже маєте профіль? <Link href={WEB_ROUTES.PUBLIC.SIGN_IN}>Ввійти</Link>
     </Typography>
   </StandardContainer>
 );

@@ -1,6 +1,6 @@
-import SignIn from './container';
-import { SignInPageFC } from './types';
+import { FC } from 'react';
+import SignInContainer from './container';
 
-const SignInPage: SignInPageFC = () => <SignIn />;
+const SignInPage: FC = () => <SignInContainer />;
 
 export default SignInPage;

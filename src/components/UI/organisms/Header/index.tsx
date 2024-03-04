@@ -1,5 +1,5 @@
 import { Link, SignOutButton } from '@/components/UI/atoms';
-import { webRoutes } from '@/settings';
+import { WEB_ROUTES } from '@/settings';
 import { HeaderFC } from './types';
 import StandardContainer from '../StandardContainer';
 import { getServerUser } from '@/utils';
@@ -8,19 +8,19 @@ import { RenderIf } from '@/components/helpers';
 const headerLinks = [
   {
     label: 'Профіль',
-    href: webRoutes.private.PROFILE,
+    href: WEB_ROUTES.PRIVATE.PROFILE,
   },
   {
     label: 'Адміни',
-    href: webRoutes.private.ADMINS,
+    href: WEB_ROUTES.PRIVATE.ADMINS,
   },
   {
     label: 'Діти',
-    href: webRoutes.private.CHILDREN,
+    href: WEB_ROUTES.PRIVATE.CHILDREN,
   },
   {
     label: 'Подарунки',
-    href: webRoutes.private.GIFTS,
+    href: WEB_ROUTES.PRIVATE.GIFTS,
   },
 ];
 
@@ -43,7 +43,7 @@ const Header: HeaderFC = async () => {
       </RenderIf>
       <RenderIf condition={!isAuthenticated}>
         <div className="flex gap-4">
-          <Link href={webRoutes.public.SIGN_IN}>Ввійти</Link>
+          <Link href={WEB_ROUTES.PUBLIC.SIGN_IN}>Ввійти</Link>
         </div>
       </RenderIf>
     </StandardContainer>

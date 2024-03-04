@@ -1,5 +1,5 @@
 import { coerce, nativeEnum, object, string } from 'zod';
-import { CreateGiftDto, GenderEnum, GiftSubtypeEnum, GiftTypeEnum } from '@/api/generated';
+import { CreateGiftDto, GenderEnum, GiftSubtypeEnum, GiftTypeEnum } from '@/api/__generated__';
 import { SchemaAsType } from '@/types';
 import { notEmptyString } from '@/utils';
 

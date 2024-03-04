@@ -1,8 +1,8 @@
 import { parseId } from '@/utils';
 import AdminContainer from './container';
-import { PageWithIdParam } from '@/types';
+import { FCWithIdParam } from '@/types';
 
-const AdminPage: PageWithIdParam = async ({ params }) => {
+const AdminPage: FCWithIdParam = async ({ params }) => {
   const id = await parseId(params.id);
 
   return <AdminContainer id={id} />;

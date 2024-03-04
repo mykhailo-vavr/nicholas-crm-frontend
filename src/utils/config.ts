@@ -1,7 +1,5 @@
 export enum ServerConfigKeysEnum {
   API_BASE_URL = 'API_BASE_URL',
-  NEXTAUTH_URL = 'NEXTAUTH_URL',
-  NEXTAUTH_SECRET = 'NEXTAUTH_SECRET',
 }
 
 export enum ClientConfigKeysEnum {
