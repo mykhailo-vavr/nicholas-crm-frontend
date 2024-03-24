@@ -6,9 +6,9 @@ import { FormAction, SchemaType } from '@/types';
 import { activateChildSchema, deactivateChildSchema } from './schemas';
 import { ChildService } from '@/api/__generated__';
 import { WEB_ROUTES } from '@/settings';
-import '@/api/config';
+import '@/api/client/config';
 
-export const activateChildAction: FormAction<SchemaType<typeof activateChildSchema>> = async (formData) => {
+export const activateChildAction: FormAction<SchemaType<typeof activateChildSchema>> = async (_, formData) => {
   const parsed = await parseFormData(activateChildSchema, formData);
 
   if (!parsed.data) {
@@ -23,7 +23,7 @@ export const activateChildAction: FormAction<SchemaType<typeof activateChildSche
   return parsed;
 };
 
-export const deactivateChildAction: FormAction<SchemaType<typeof deactivateChildSchema>> = async (formData) => {
+export const deactivateChildAction: FormAction<SchemaType<typeof deactivateChildSchema>> = async (_, formData) => {
   const parsed = await parseFormData(deactivateChildSchema, formData);
 
   if (!parsed.data) {

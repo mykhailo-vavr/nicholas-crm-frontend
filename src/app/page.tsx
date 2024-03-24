@@ -1,6 +1,6 @@
-import LandingContainer from './container';
-import { LandingPageFC } from './types';
+import { FC } from 'react';
+import HomeContainer from './container';
 
-const LandingPage: LandingPageFC = () => <LandingContainer />;
+const HomePage: FC = () => <HomeContainer />;
 
-export default LandingPage;
+export default HomePage;

@@ -3,6 +3,7 @@ export const WEB_ROUTES = {
     LANDING_PAGE: '/',
     SIGN_IN: '/auth/sign-in',
   },
+
   PRIVATE: {
     PROFILE: '/profile',
 

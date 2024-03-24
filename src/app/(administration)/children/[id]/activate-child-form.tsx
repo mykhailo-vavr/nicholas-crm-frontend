@@ -1,16 +1,16 @@
 'use client';
 
-import { Dialog, Form } from '@/components/UI/organisms';
+import { Dialog, Form } from '@/components/UI/molecules';
 import { FCWithId } from './types';
 import { Button, Input, SubmitButton } from '@/components/UI/atoms';
-import { useDialog, useServerActionForm } from '@/hooks';
+import { useModal, useServerActionForm } from '@/hooks';
 import { activateChildAction } from './actions';
 import { activateChildSchema } from './schemas';
 
 const ActivateChildForm: FCWithId = ({ id }) => {
-  const [isOpen, openDialog, closeDialog] = useDialog();
+  const [isOpen, openDialog, closeDialog] = useModal();
 
-  const [, action] = useServerActionForm(activateChildAction, activateChildSchema, closeDialog);
+  const [, action] = useServerActionForm(activateChildAction, activateChildSchema);
 
   return (
     <>

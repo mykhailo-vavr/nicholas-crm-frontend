@@ -6,9 +6,9 @@ import { FormAction, SchemaType } from '@/types';
 import { createGiftSchema } from './schemas';
 import { GiftService } from '@/api/__generated__';
 import { WEB_ROUTES } from '@/settings';
-import '@/api/config';
+import '@/api/server/config';
 
-export const createGiftAction: FormAction<SchemaType<typeof createGiftSchema>> = async (formData) => {
+export const createGiftAction: FormAction<SchemaType<typeof createGiftSchema>> = async (_, formData) => {
   const parsed = await parseFormData(createGiftSchema, formData);
 
   if (!parsed.data) {

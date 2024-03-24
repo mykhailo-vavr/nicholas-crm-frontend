@@ -1,16 +1,16 @@
 import { cls } from '@/utils';
 import { StandardContainerFC } from './types';
-import { Typography } from '../../atoms';
+import { RenderIf } from '@/components/helpers';
 
-const StandardContainer: StandardContainerFC = ({ title, children, classes }) => (
-  <div className={cls('flex w-full flex-col gap-1.5 rounded-lg', classes?.root)}>
-    {title && (
-      <Typography variant="h6" className={cls(classes?.title)}>
-        {title}
-      </Typography>
-    )}
-    <div className={cls('rounded-lg p-4 shadow-lg shadow-slate-300', classes?.content)}>{children}</div>
-  </div>
+// TODO: Rename to SectionContainer?
+
+const StandardContainer: StandardContainerFC = ({ title, children, className, classes }) => (
+  <section className={cls('container', className, classes?.root)}>
+    <RenderIf condition={title}>
+      <h3 className={cls('mb-2 text-lg', classes?.title)}>{title}</h3>
+    </RenderIf>
+    <div className={cls('rounded-lg p-4 shadow shadow-slate-300', classes?.container)}>{children}</div>
+  </section>
 );
 
 export default StandardContainer;

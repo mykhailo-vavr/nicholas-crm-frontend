@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, Dispatch, SetStateAction, useMemo } from 'react';
 
 export const useDebounceState = <T>(initialValue: T, delay = 500): [T, T, Dispatch<SetStateAction<T>>, boolean] => {

@@ -6,9 +6,9 @@ import { FormAction, SchemaType } from '@/types';
 import { createAdminSchema } from './schemas';
 import { UserService } from '@/api/__generated__';
 import { WEB_ROUTES } from '@/settings';
-import '@/api/config';
+import '@/api/client/config';
 
-export const createAdminAction: FormAction<SchemaType<typeof createAdminSchema>> = async (formData) => {
+export const createAdminAction: FormAction<SchemaType<typeof createAdminSchema>> = async (_, formData) => {
   const parsed = await parseFormData(createAdminSchema, formData);
 
   if (!parsed.data) {

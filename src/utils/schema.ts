@@ -1,9 +1,13 @@
 import { ZodBoolean, ZodNull, ZodNumber, ZodObject, ZodString, coerce, object, string as zodString } from 'zod';
-import { Schema, SchemaShape, SchemaShapeType } from '@/types';
+import { Schema, SchemaEffect, SchemaShape, SchemaShapeType } from '@/types';
 
-export const getSchemaInitialValues = <S extends SchemaShape>(schema: Schema<S>) =>
+export const getSchemaShape = <S extends SchemaShape>(schema: Schema<S> | SchemaEffect<S>) =>
+  // @ts-ignore
+  (schema.shape || schema.innerType().shape) as S;
+
+export const getSchemaInitialValues = <S extends SchemaShape>(schema: Schema<S> | SchemaEffect<S>) =>
   Object.fromEntries(
-    Object.entries(schema.shape).map(([key, value]) => {
+    Object.entries(getSchemaShape(schema)).map(([key, value]) => {
       if (value instanceof ZodNumber) return [key, 0];
       if (value instanceof ZodString) return [key, ''];
       if (value instanceof ZodBoolean) return [key, false];

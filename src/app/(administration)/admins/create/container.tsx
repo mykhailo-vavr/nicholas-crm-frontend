@@ -3,12 +3,12 @@
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { useServerActionForm } from '@/hooks';
 import { CreateAdminContainerFC } from './types';
-import { Form, StandardContainer } from '@/components/UI/organisms';
+import { StandardContainer } from '@/components/UI/organisms';
 import { Input, Link, PhoneInput, Select, SubmitButton } from '@/components/UI/atoms';
 import { createAdminSchema } from './schemas';
 import { createAdminAction } from './actions';
 import { adminRolesOptions } from './options';
-import { StandardBar } from '@/components/UI/molecules';
+import { Form, StandardBar } from '@/components/UI/molecules';
 import { WEB_ROUTES } from '@/settings';
 
 const CreateAdminContainer: CreateAdminContainerFC = () => {

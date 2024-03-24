@@ -3,7 +3,7 @@
 ## How to start project
 
 1. Install dependencies
-   `npm i`
+   `yarn install`
 2. Create .env based on .env.example
 3. Run project
-   `npm run start:dev`
+   `yarn start:dev`

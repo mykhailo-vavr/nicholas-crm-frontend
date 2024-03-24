@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { Typography } from '@/components/UI/atoms';
 
-const RootNotFoundPage: FC = () => <Typography variant="h4">Такої сторінки немає</Typography>;
+const RootNotFoundPage: FC = () => <h1 className="text-center text-2xl">Такої сторінки не існує</h1>;
 
 export default RootNotFoundPage;

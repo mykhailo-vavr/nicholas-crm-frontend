@@ -1,4 +1,4 @@
-import { UserService } from '@/api/__generated__';
+import { UserService } from '@/api/server';
 import { Link } from '@/components/UI/atoms';
 import { Table } from '@/components/UI/organisms';
 import { WEB_ROUTES } from '@/settings';

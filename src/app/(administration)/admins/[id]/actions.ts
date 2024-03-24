@@ -6,9 +6,9 @@ import { FormAction, SchemaType } from '@/types';
 import { activateAdminSchema, deactivateAdminSchema } from './schemas';
 import { UserService } from '@/api/__generated__';
 import { WEB_ROUTES } from '@/settings';
-import '@/api/config';
+import '@/api/client/config';
 
-export const activateAdminAction: FormAction<SchemaType<typeof activateAdminSchema>> = async (formData) => {
+export const activateAdminAction: FormAction<SchemaType<typeof activateAdminSchema>> = async (_, formData) => {
   const parsed = await parseFormData(activateAdminSchema, formData);
 
   if (!parsed.data) {
@@ -23,7 +23,7 @@ export const activateAdminAction: FormAction<SchemaType<typeof activateAdminSche
   return parsed;
 };
 
-export const deactivateAdminAction: FormAction<SchemaType<typeof deactivateAdminSchema>> = async (formData) => {
+export const deactivateAdminAction: FormAction<SchemaType<typeof deactivateAdminSchema>> = async (_, formData) => {
   const parsed = await parseFormData(deactivateAdminSchema, formData);
 
   if (!parsed.data) {

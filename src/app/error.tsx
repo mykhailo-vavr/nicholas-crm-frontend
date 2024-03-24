@@ -1,8 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { Typography } from '@/components/UI/atoms';
 
-const RootError: FC = () => <Typography variant="h4">Сталась помилка</Typography>;
+const RootError: FC = () => <h1 className="text-center text-2xl">Сталась помилка</h1>;
 
 export default RootError;

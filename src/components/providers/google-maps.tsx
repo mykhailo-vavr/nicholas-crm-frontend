@@ -34,7 +34,7 @@ export const useLoadGoogleMapsLibraries = () => {
 const GoogleMapsProvider: FCWithChildren = ({ children }) => {
   const loading = useLoadGoogleMapsLibraries();
 
-  return <RenderIf condition={!loading && window.google}>{children}</RenderIf>;
+  return <RenderIf condition={!loading}>{children}</RenderIf>;
 };
 
 export default GoogleMapsProvider;

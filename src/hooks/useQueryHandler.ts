@@ -1,9 +1,9 @@
 'use client';
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { useEffect, useTransition } from 'react';
+import { useEffect, useMemo, useTransition } from 'react';
 import { createQueryString } from '@/utils';
-import { useDebounceState } from './useDebounce';
+import { useDebounceState } from './useDebounceState';
 
 export const useQueryHandler = <T extends Record<string, string | number>>(initialQuery: T, delay = 200) => {
   const router = useRouter();
@@ -26,6 +26,7 @@ export const useQueryHandler = <T extends Record<string, string | number>>(initi
     ) as T;
 
     setQuery(updatedInitialQuery);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -34,5 +35,8 @@ export const useQueryHandler = <T extends Record<string, string | number>>(initi
     });
   }, [debouncedQuery, pathname, router, searchParams]);
 
-  return { debouncedQuery, query, setQuery, pending: isPending };
+  return useMemo(
+    () => ({ debouncedQuery, query, setQuery, pending: isPending }),
+    [debouncedQuery, isPending, query, setQuery],
+  );
 };

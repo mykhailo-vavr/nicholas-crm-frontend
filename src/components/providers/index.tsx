@@ -1,7 +1,7 @@
 import { FCWithChildren } from '@/types';
+import UserProvider from './user';
+import ThemeProvider from './Theme/theme';
 import StylesProvider from './Styles';
-import ThemeProvider from './Theme';
-import { UserProvider } from '@/contexts';
 
 const Providers: FCWithChildren = ({ children }) => (
   <UserProvider>

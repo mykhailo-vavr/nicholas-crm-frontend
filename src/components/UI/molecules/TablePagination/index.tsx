@@ -4,7 +4,7 @@ import { useCallback, useMemo } from 'react';
 import { TablePagination as MUITablePagination } from '@mui/material';
 import { useQueryHandler } from '@/hooks';
 import { TablePaginationFC } from './types';
-import { InputOnchangeEvent } from '@/types';
+import { InputOnChangeEvent } from '@/types';
 
 const TablePagination: TablePaginationFC = ({ rowsPerPageOptions, ...props }) => {
   const initialQuery = useMemo(() => ({ page: 0, limit: rowsPerPageOptions[0] }), [rowsPerPageOptions]);
@@ -21,7 +21,7 @@ const TablePagination: TablePaginationFC = ({ rowsPerPageOptions, ...props }) =>
   );
 
   const onRowsPerPageChange = useCallback(
-    (event: InputOnchangeEvent) => {
+    (event: InputOnChangeEvent) => {
       setQuery({ limit: +event.target.value, page: 0 });
     },
     [setQuery],

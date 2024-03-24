@@ -21,17 +21,14 @@ const AddressInput: AddressInputFC = (props) => {
   const autocompleteService = useMemo(() => new window.google.maps.places.AutocompleteService(), []);
 
   const getOptionLabel = useCallback((option: PlaceAutocompletePrediction) => {
-  
     const { street, streetNumber, city } = parseAddressString(option.description);
     return [street, streetNumber, city].join(', ');
   }, []);
 
   const renderInput = useCallback(
-    (params: AutocompleteRenderInputParams) => <Input {...params} {...props} name="address" label="Адреса" fullWidth />,
+    (params: AutocompleteRenderInputParams) => <Input {...params} {...props} name="address" label="Адреса" />,
     [props],
   );
-
- 
 
   const filterOptions = useCallback((x: PlaceAutocompletePredictions) => x, []);
 

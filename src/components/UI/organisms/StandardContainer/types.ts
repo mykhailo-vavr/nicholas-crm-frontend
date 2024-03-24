@@ -1,12 +1,11 @@
-import { FCWithChildren } from '@/types';
+import { FC, ReactNode } from 'react';
+import { ClassNames } from '@/types';
 
 export type StandardContainerProps = {
   title?: string;
-  classes?: {
-    root?: string;
-    title?: string;
-    content?: string;
-  };
+  className?: string;
+  classes?: ClassNames<'title' | 'container'>;
+  children?: ReactNode;
 };
 
-export type StandardContainerFC = FCWithChildren<StandardContainerProps>;
+export type StandardContainerFC = FC<StandardContainerProps>;

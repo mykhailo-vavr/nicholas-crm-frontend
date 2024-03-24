@@ -1,52 +1,42 @@
-import { Link, SignOutButton } from '@/components/UI/atoms';
-import { WEB_ROUTES } from '@/settings';
-import { HeaderFC } from './types';
-import StandardContainer from '../StandardContainer';
-import { getServerUser } from '@/utils';
+'use client';
+
+import { FC, useMemo } from 'react';
+import { Button, Link } from '@/components/UI/atoms';
 import { RenderIf } from '@/components/helpers';
+import { RolesEnum } from '@/api/__generated__';
+import { useSignOut, useUser } from '@/hooks';
+import { adminLinks, publicLinks } from './links';
 
-const headerLinks = [
-  {
-    label: 'Профіль',
-    href: WEB_ROUTES.PRIVATE.PROFILE,
-  },
-  {
-    label: 'Адміни',
-    href: WEB_ROUTES.PRIVATE.ADMINS,
-  },
-  {
-    label: 'Діти',
-    href: WEB_ROUTES.PRIVATE.CHILDREN,
-  },
-  {
-    label: 'Подарунки',
-    href: WEB_ROUTES.PRIVATE.GIFTS,
-  },
-];
+const Header: FC = () => {
+  const signOut = useSignOut();
+  const { isAuthenticated, role } = useUser();
 
-const Header: HeaderFC = async () => {
-  const { isAuthenticated } = await getServerUser();
+  const links = useMemo(
+    () =>
+      ({
+        public: publicLinks,
+        [RolesEnum.VOLUNTEER]: adminLinks,
+        [RolesEnum.ADMIN]: adminLinks,
+        [RolesEnum.SUPER_ADMIN]: adminLinks,
+      })[role || 'public'],
+    [role],
+  );
 
   return (
-    <StandardContainer
-      classes={{ root: 'rounded-t-none', content: 'flex items-center justify-between rounded-t-none' }}
-    >
-      <RenderIf condition={isAuthenticated}>
-        <div className="flex gap-4">
-          {headerLinks.map(({ label, href }) => (
-            <Link href={href} key={href}>
-              {label}
-            </Link>
+    <header className="container mb-8 flex items-center justify-between rounded-b-lg p-4 shadow">
+      <nav>
+        <ul className="flex gap-4">
+          {links.map(({ label, href }) => (
+            <li key={href}>
+              <Link href={href}>{label}</Link>
+            </li>
           ))}
-        </div>
-        <SignOutButton />
+        </ul>
+      </nav>
+      <RenderIf condition={isAuthenticated}>
+        <Button onClick={signOut}>Вийти</Button>
       </RenderIf>
-      <RenderIf condition={!isAuthenticated}>
-        <div className="flex gap-4">
-          <Link href={WEB_ROUTES.PUBLIC.SIGN_IN}>Ввійти</Link>
-        </div>
-      </RenderIf>
-    </StandardContainer>
+    </header>
   );
 };
 

@@ -5,18 +5,22 @@ import Button from '../Button';
 import { SubmitButtonFC } from './types';
 import Spinner from '../Spinner';
 import { cls } from '@/utils';
+import { RenderIf } from '@/components/helpers';
 
-const SubmitButton: SubmitButtonFC = ({ disabled, classes, className, children, ...props }) => {
+const SubmitButton: SubmitButtonFC = ({ disabled, className, classes, children, ...props }) => {
   const { pending } = useFormStatus();
 
   return (
     <Button
       type="submit"
       disabled={pending || disabled}
-      classes={{ root: cls('h-10', classes?.root, className) }}
+      classes={{ root: cls('h-10', className, classes?.root) }}
       {...props}
     >
-      {pending ? <Spinner size="2rem" /> : children}
+      <RenderIf condition={pending}>
+        <Spinner size="2rem" />
+      </RenderIf>
+      <RenderIf condition={!pending}>{children}</RenderIf>
     </Button>
   );
 };

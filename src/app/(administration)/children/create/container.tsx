@@ -3,8 +3,7 @@
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { useServerActionForm } from '@/hooks';
 import { CreateChildContainerFC } from './types';
-import { StandardBar } from '@/components/UI/molecules';
-import { Form, StandardContainer } from '@/components/UI/organisms';
+import { Form, StandardBar } from '@/components/UI/molecules';
 import {
   Input,
   PhoneInput,
@@ -21,6 +20,7 @@ import { WEB_ROUTES } from '@/settings';
 import { createChildSchema } from './schemas';
 import { createChildAction } from './actions';
 import { genderOptions, needStatusOptions } from './options';
+import { StandardContainer } from '@/components/UI/organisms';
 
 const CreateChildContainer: CreateChildContainerFC = () => {
   const [{ errors }, action] = useServerActionForm(createChildAction, createChildSchema);
@@ -45,15 +45,7 @@ const CreateChildContainer: CreateChildContainerFC = () => {
         <AddressInput errorText={errors?.address} />
         <NumberInput name="flatNumber" label="Номер квартири" min={0} decimalScale={0} errorText={errors?.flatNumber} />
 
-        <TextArea
-          className="col-span-full"
-          inputProps={{
-            maxLength: 200,
-          }}
-          name="notes"
-          label="Примітки"
-          errorText={errors?.notes}
-        />
+        <TextArea className="col-span-full" name="notes" label="Примітки" errorText={errors?.notes} />
         <SubmitButton>Створити</SubmitButton>
       </Form>
     </StandardContainer>

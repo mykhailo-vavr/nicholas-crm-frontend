@@ -7,7 +7,15 @@ import type { RolesEnum } from './RolesEnum';
 
 export type SignInResponse = {
     role: RolesEnum;
-    id: number;
     accessToken: string;
+    id: number;
+    firstName: string;
+    lastName: string;
+    phone: string;
+    email: string;
+    isActive: boolean;
+    deactivationReason: string | null;
+    createdAt: string;
+    updatedAt: string;
 };
 

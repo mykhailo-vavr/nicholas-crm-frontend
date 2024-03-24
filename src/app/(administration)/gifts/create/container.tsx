@@ -3,13 +3,13 @@
 import { ArrowBack as ArrowBackIcon } from '@mui/icons-material';
 import { useServerActionForm } from '@/hooks';
 import { CreateGiftContainerFC } from './types';
-import { StandardBar } from '@/components/UI/molecules';
-import { Form, StandardContainer } from '@/components/UI/organisms';
+import { StandardBar, Form } from '@/components/UI/molecules';
 import { Input, Select, SubmitButton, TextArea, Link, NumberInput } from '@/components/UI/atoms';
 import { WEB_ROUTES } from '@/settings';
 import { createGiftSchema } from './schemas';
 import { createGiftAction } from './actions';
 import { genderOptions, giftSubtypeOptions, giftTypeOptions } from './options';
+import { StandardContainer } from '@/components/UI/organisms';
 
 const CreateGiftContainer: CreateGiftContainerFC = () => {
   const [{ errors }, action] = useServerActionForm(createGiftAction, createGiftSchema);
@@ -36,15 +36,7 @@ const CreateGiftContainer: CreateGiftContainerFC = () => {
           decimalScale={0}
           errorText={errors?.maxAge}
         />
-        <TextArea
-          className="col-span-full"
-          inputProps={{
-            maxLength: 200,
-          }}
-          name="description"
-          label="Опис"
-          errorText={errors?.description}
-        />
+        <TextArea className="col-span-full" name="description" label="Опис" errorText={errors?.description} />
         <SubmitButton>Створити</SubmitButton>
       </Form>
     </StandardContainer>

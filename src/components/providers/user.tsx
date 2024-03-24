@@ -1,8 +1,10 @@
+'use client';
+
 import { useEffect, useMemo, useState } from 'react';
-import { UserContext } from './context';
+import { UserContext, UserState } from '@/contexts';
 import { FCWithChildren } from '@/types';
-import { UserService } from '@/api/__generated__';
-import { UserState } from './types';
+import { UserService } from '@/api/client';
+import { RenderIf } from '../helpers';
 
 const UserProvider: FCWithChildren = ({ children }) => {
   const [user, setUser] = useState<UserState>(null);
@@ -10,13 +12,17 @@ const UserProvider: FCWithChildren = ({ children }) => {
 
   useEffect(() => {
     const asyncWrapper = async () => {
-      const data = await UserService.userControllerGetMe();
-      setUser(data);
+      try {
+        const data = await UserService.userControllerGetMe();
+        setUser(data);
+      } catch {
+        setUser(null);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    asyncWrapper().then(() => {
-      setLoading(false);
-    });
+    asyncWrapper();
   }, []);
 
   const value = useMemo(
@@ -30,11 +36,11 @@ const UserProvider: FCWithChildren = ({ children }) => {
     [user],
   );
 
-  if (loading) {
-    return null;
-  }
-
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  return (
+    <RenderIf condition={!loading}>
+      <UserContext.Provider value={value}>{children}</UserContext.Provider>
+    </RenderIf>
+  );
 };
 
 export default UserProvider;

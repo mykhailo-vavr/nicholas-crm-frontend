@@ -1,11 +1,11 @@
 import { Header } from '@/components/UI/organisms';
-import { MainLayoutFC } from './types';
+import { FCWithChildren } from '@/types';
 
-const MainLayout: MainLayoutFC = ({ children }) => (
-  <div className="container px-6">
+const MainLayout: FCWithChildren = ({ children }) => (
+  <>
     <Header />
-    <div className="flex flex-col items-center pt-6">{children}</div>
-  </div>
+    {children}
+  </>
 );
 
 export default MainLayout;

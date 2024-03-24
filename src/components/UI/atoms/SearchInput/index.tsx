@@ -7,7 +7,7 @@ import { Input, Spinner } from '@/components/UI/atoms';
 import { useQueryHandler } from '@/hooks';
 import { SearchInputFC } from './types';
 import { cls } from '@/utils';
-import { InputOnchangeEvent } from '@/types';
+import { InputOnChangeEvent } from '@/types';
 import { RenderIf } from '@/components/helpers';
 
 const SearchInput: SearchInputFC = ({ className, ...props }) => {
@@ -19,7 +19,7 @@ const SearchInput: SearchInputFC = ({ className, ...props }) => {
   } = useQueryHandler(initialQuery);
 
   const onChange = useCallback(
-    (event: InputOnchangeEvent) => {
+    (event: InputOnChangeEvent) => {
       setQuery({ search: event.target.value });
     },
     [setQuery],

@@ -1,5 +1,5 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-export type CreateAdminPageFC = FC
+export type CreateAdminPageFC = FC;
 
-export type CreateAdminContainerFC = FC
+export type CreateAdminContainerFC = FC;

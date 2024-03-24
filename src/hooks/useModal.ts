@@ -1,8 +1,8 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
-export const useDialog = (initialState = false): [boolean, () => void, () => void] => {
+export const useModal = (initialState = false): [boolean, () => void, () => void] => {
   const [isOpen, setOpen] = useState(initialState);
 
   const open = useCallback(() => {
@@ -13,5 +13,5 @@ export const useDialog = (initialState = false): [boolean, () => void, () => voi
     setOpen(false);
   }, [setOpen]);
 
-  return [isOpen, open, close];
+  return useMemo(() => [isOpen, open, close], [close, isOpen, open]);
 };

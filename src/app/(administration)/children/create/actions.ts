@@ -6,9 +6,9 @@ import { FormAction, SchemaType } from '@/types';
 import { createChildSchema } from './schemas';
 import { ChildService } from '@/api/__generated__';
 import { WEB_ROUTES } from '@/settings';
-import '@/api/config';
+import '@/api/server/config';
 
-export const createChildAction: FormAction<SchemaType<typeof createChildSchema>> = async (formData) => {
+export const createChildAction: FormAction<SchemaType<typeof createChildSchema>> = async (_, formData) => {
   const parsed = await parseFormData(createChildSchema, formData);
 
   if (!parsed.data) {

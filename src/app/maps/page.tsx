@@ -4,7 +4,7 @@ import { useMemo, useState, useCallback, HTMLAttributes } from 'react';
 import Autocomplete, { AutocompleteRenderInputParams } from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
 import parse from 'autosuggest-highlight/parse';
-import { Form } from '@/components/UI/organisms';
+import { Form } from '@/components/UI/molecules';
 import { Input, NumberInput } from '@/components/UI/atoms';
 import { cls } from '@/utils';
 
@@ -19,10 +19,7 @@ const GoogleMaps = () => {
 
   const getOptionLabel = useCallback((option: PlaceAutocompletePrediction) => option.description, []);
 
-  const renderInput = useCallback(
-    (params: AutocompleteRenderInputParams) => <Input {...params} label="Адреса" fullWidth />,
-    [],
-  );
+  const renderInput = useCallback((params: AutocompleteRenderInputParams) => <Input {...params} label="Адреса" />, []);
 
   const filterOptions = useCallback((x: PlaceAutocompletePredictions) => x, []);
 

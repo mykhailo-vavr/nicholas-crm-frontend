@@ -1,10 +1,10 @@
 import { Add as AddIcon } from '@mui/icons-material';
-import { Link, SearchInput } from '@/components/UI/atoms';
-import { StandardContainer } from '@/components/UI/organisms';
-import { GiftsContainerFC } from './types';
 import GiftsData from './data';
-import { WEB_ROUTES } from '@/settings';
+import { Link, SearchInput } from '@/components/UI/atoms';
 import { StandardBar } from '@/components/UI/molecules';
+import { GiftsContainerFC } from './types';
+import { WEB_ROUTES } from '@/settings';
+import { StandardContainer } from '@/components/UI/organisms';
 
 const GiftsContainer: GiftsContainerFC = ({ searchParams }) => (
   <StandardContainer title="Список подарунків">

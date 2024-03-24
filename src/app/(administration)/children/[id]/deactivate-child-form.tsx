@@ -1,16 +1,16 @@
 'use client';
 
-import { Dialog, Form } from '@/components/UI/organisms';
+import { Dialog, Form } from '@/components/UI/molecules';
 import { FCWithId } from './types';
 import { Button, Input, SubmitButton, TextArea } from '@/components/UI/atoms';
-import { useDialog, useServerActionForm } from '@/hooks';
+import { useModal, useServerActionForm } from '@/hooks';
 import { deactivateChildAction } from './actions';
 import { deactivateChildSchema } from './schemas';
 
 const DeactivateChildForm: FCWithId = ({ id }) => {
-  const [isOpen, openDialog, closeDialog] = useDialog();
+  const [isOpen, openDialog, closeDialog] = useModal();
 
-  const [{ errors }, action] = useServerActionForm(deactivateChildAction, deactivateChildSchema, closeDialog);
+  const [{ errors }, action] = useServerActionForm(deactivateChildAction, deactivateChildSchema);
 
   return (
     <>
@@ -24,9 +24,6 @@ const DeactivateChildForm: FCWithId = ({ id }) => {
             permanentHelperText={false}
             label="Причина деактивації"
             name="deactivationReason"
-            inputProps={{
-              maxLength: 200,
-            }}
             errorText={errors?.deactivationReason}
           />
           <SubmitButton color="error">Деактивувати</SubmitButton>

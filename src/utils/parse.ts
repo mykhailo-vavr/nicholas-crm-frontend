@@ -1,11 +1,11 @@
 import { custom } from 'zod';
-import { Schema, SchemaIssue, SchemaShape } from '@/types';
+import { Schema, SchemaEffect, SchemaIssue, SchemaShape } from '@/types';
 import { addressSchema, idSchema } from './schema';
 
 export const parseErrors = <S extends SchemaShape>(issues: SchemaIssue[]) =>
   Object.fromEntries(issues.map(({ path, message }) => [path[0], message])) as Partial<Record<keyof S, string>>;
 
-export const parseFormData = async <S extends SchemaShape>(schema: Schema<S>, formData: FormData) => {
+export const parseFormData = async <S extends SchemaShape>(schema: Schema<S> | SchemaEffect<S>, formData: FormData) => {
   const parsed = await schema.safeParseAsync(Object.fromEntries(formData.entries()));
 
   if (parsed.success) {
